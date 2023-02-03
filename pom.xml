@@ -121,7 +121,7 @@
                 <version>2.2</version>
                 <configuration>          
                     <server>TomcatServer</server>
-                    <url>164.92.225.186:8081/manager/text</url>
+                    <url>http://164.92.225.186:8081/manager/text</url>
                     <username>${remote.user}</username>
                     <password>${remote.password}</password>
                     <update>true</update>    
