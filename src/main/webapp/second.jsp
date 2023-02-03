@@ -10,59 +10,73 @@
 <html>
 
 <head>
-    <title>Show users</title>
+    <title>Show all users</title>
     <style>
+        #box {
+            width: 600px;
+            height: 500px;
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid darkorange;
+        }
         table {
             border-collapse: collapse;
         }
 
-        table, th, td {
+        input, table, th, td {
             border: 1px solid darkorange;
         }
+
         th, td, input {
             padding: 5px;
         }
+
         input {
             margin: 1px;
-            border: 1px solid darkorange;
         }
     </style>
 </head>
 <body>
-<h1>Users</h1>
-<h3>Create a new user</h3>
-<form action="${pageContext.request.contextPath}/backend" method="post">
-    <input type="text" name="fname" placeholder="First name">
-    <br/><input type="text" name="lname" placeholder="Last name">
-    <br/><input type="text" name="password" placeholder="Password">
-    <br/><input type="text" name="phone" placeholder="Phone">
-    <br/><input type="text" name="address" placeholder="Address">
-    <br/><input type="submit" value="Create">
-</form>
-<h3>Users</h3>
-<table >
-    <thead>
-    <tr>
-        <th>User ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-        <th>Address</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${sessionScope.users}" var="user">
+<div id="box">
+    <h1>Users</h1>
+    <h3>Create a new user</h3>
+    <form action="${pageContext.request.contextPath}/backend" method="post">
+        <input type="text" name="fname" placeholder="First name">
+        <br/><input type="text" name="lname" placeholder="Last name">
+        <br/><input type="text" name="password" placeholder="Password">
+        <br/><input type="text" name="phone" placeholder="Phone">
+        <br/><input type="text" name="address" placeholder="Address">
+        <br/><input type="submit" value="Create">
+    </form>
+    <h3>Users</h3>
+    <table>
+        <thead>
         <tr>
-            <td><c:out value="${user.id}"/></td>
-            <td><c:out value="${user.fname}"/></td>
-            <td><c:out value="${user.lname}"/></td>
-            <td><c:out value="${user.phone}"/></td>
-            <td><c:out value="${user.address}"/></td>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Address</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+        <c:forEach items="${sessionScope.users}" var="user">
+            <tr>
+                <td><c:out value="${user.id}"/></td>
+                <td><c:out value="${user.fname}"/></td>
+                <td><c:out value="${user.lname}"/></td>
+                <td><c:out value="${user.phone}"/></td>
+                <td><c:out value="${user.address}"/></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
 
